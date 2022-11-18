@@ -23,8 +23,8 @@ npm install -g ionic
 Create an Ionic app using one of the pre-made app templates, or a blank one to start fresh. 
 
 ```
-$ ionic start ionic-github-pages-demo tabs
-✔ Preparing directory ./ionic-github-pages-demo - done!
+$ ionic start ionic-github-pages-test tabs
+✔ Preparing directory ./ionic-github-pages-test - done!
 ✔ Downloading and extracting tabs starter - done!
 ...
 ```
@@ -32,7 +32,7 @@ $ ionic start ionic-github-pages-demo tabs
 ## Run the App
 
 ```
-$ cd ionic-github-pages-demo/
+$ cd ionic-github-pages-test/
 $ ionic serve
 
 > ng run app:serve --host=localhost --port=8100
@@ -43,14 +43,14 @@ $ ionic serve
 ## Create a Repository on GitHub
 
 - Goto your GitHub Home page -> Repositories -> Click New
-- Specify your repo name ionic-github-pages-demo
+- Specify your repo name ionic-github-pages-test
 - Leave it public and add a README file
 - Create Repo
 
 You should find instrutions to push an existing repository from the command line:
 
 ```
-git remote add origin https://github.com/hoodaajay99/ionic-github-pages-demo.git
+git remote add origin https://github.com/codeinstane/ionic-github-pages-test.git
 git push -u origin master
 ```
 > GitHub Pages allows you to create `single sites per GitHub account and organization` and `unlimited project sites`. Detailed instructions are provided here `https://pages.github.com/`
@@ -58,22 +58,22 @@ git push -u origin master
 ## In your angular project, add new remote for GitHub
 
 ```
-$ git remote add origin https://github.com/hoodaajay99/ionic-github-pages-demo.git
+$ git remote add origin https://github.com/codeinstane/ionic-github-pages-test.git
 ```
 Verify
 
 ```
 $ git remote -v
-origin	https://github.com/hoodaajay99/ionic-github-pages-demo.git (fetch)
-origin	https://github.com/hoodaajay99/ionic-github-pages-demo.git (push)
+origin	https://github.com/codeinstane/ionic-github-pages-test.git (fetch)
+origin	https://github.com/codeinstane/ionic-github-pages-test.git (push)
 ```
 
 ## Build your ionic app
 Navigate in the terminal to your project directory and execute `ionic build --prod -- --base-href https://<username>.github.io/<repository>/`
 
 ```
-$ ionic build --prod -- --base-href https://hoodaajay99.github.io/ionic-github-pages-demo
-> ng run app:build:production --base-href https://hoodaajay99.github.io/ionic-github-pages-demo
+$ ionic build --prod -- --base-href https://codeinstane.github.io/ionic-github-pages-test
+> ng run app:build:production --base-href https://codeinstane.github.io/ionic-github-pages-test
 ...
 ```
 This will create the www folder with output bundles for your ionic application.
@@ -104,7 +104,7 @@ Password for 'https://<username>@github.com':
 
 - Goto Github repository settings -> GitHub Pages section
 - Make sure `Source` is set to `gh-pages` branch. 
-- Your site is published at https://hoodaajay99.github.io/ionic-github-pages-demo/
+- Your site is published at https://codeinstane.github.io/ionic-github-pages-test/
 
 > Your site may still not be accessible, because github pages by default looks for sites made with jekyll.
 
@@ -112,7 +112,7 @@ Password for 'https://<username>@github.com':
 
 It is now possible to completely bypass Jekyll processing on GitHub Pages by creating a file named .nojekyll in the root of your pages repo and pushing it to GitHub.
 
-> Site is accessible at https://hoodaajay99.github.io/ionic-github-pages-demo/
+> Site is accessible at https://codeinstane.github.io/ionic-github-pages-test/
 
 > Note: It may take some time for the application to be become available, since github servers take some time to update the site.
 
