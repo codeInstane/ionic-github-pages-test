@@ -37,4 +37,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: www
+<<<<<<< HEAD
         
+=======
+        #publish_dir: ./public
+>>>>>>> 9265a2e9f6ed6e33d0c6ea061b7ababa9930ce7a
