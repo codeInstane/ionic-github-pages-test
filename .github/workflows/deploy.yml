@@ -1,6 +1,12 @@
 name: Build and Deploy
 
-on: [push]
+on: 
+  push:
+    branches:
+      - main
+  schedule:
+      - cron: "22 22 * * *"
+  workflow_dispatch:
 
 
 
@@ -10,9 +16,8 @@ jobs:
     
     permissions:
       contents: write
-      pages: write
-      issues: write
-      pull-requests: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}  
       
     steps:
     - name: Use coturiv/setup-ionic
@@ -35,7 +40,7 @@ jobs:
       run: |
         ionic build --prod -- --base-href 'https://codeInstane.github.io/ionic-github-pages-test/'
         ls www
-        npm update
+        
         
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
@@ -43,3 +48,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: www
+        enable_jekyll: true
