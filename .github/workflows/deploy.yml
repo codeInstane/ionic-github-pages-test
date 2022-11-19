@@ -2,15 +2,18 @@ name: Build and Deploy
 
 on: [push]
 
-permissions:
-  contents: write
-  pages: write
-  issues: read
+
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    
+    permissions:
+      contents: write
+      pages: write
+      issues: write
+      pull-requests: write
+      
     steps:
     - name: Use coturiv/setup-ionic
       uses: coturiv/setup-ionic@v1
