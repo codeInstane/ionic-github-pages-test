@@ -29,16 +29,16 @@ jobs:
       run: |
         npm i -D -E @angular/cli
         npm install
+        npm audit fix --force
+
     - name: Build
       run: |
         ionic build --prod -- --base-href 'https://codeInstane.github.io/ionic-github-pages-test/'
         ls www
-
+        npm update
+        
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2      
-      #with:
-        #github_token: ${{ secrets.GITHUB_TOKEN }}
-        #publish_dir: ./public
+      uses: peaceiris/actions-gh-pages@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
