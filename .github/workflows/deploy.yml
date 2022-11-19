@@ -21,7 +21,7 @@ jobs:
            cordova-version: 8
            install-java: false
            install-pods: false
-           
+
       - uses: actions/checkout@v3
 
       - name: Setup Node
@@ -29,13 +29,19 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Cache dependencies
+      - name: Cache node modules
+        id: cache-nodemodules
         uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          # caching node_modules
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
       - run: npm ci
       #- run: npm run build
